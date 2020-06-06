@@ -35,4 +35,4 @@ FA:OE | Cycles through menu options clockwise [dial-clockwise]
 FA:0F | Reads "B. Full", Freezes up
 DA:16 | Shows the final two digits on the display, i.e. "16.."
 
-If you figure out how to force a rinse, please let me know!
+If you figure out how to force a rinse on this model, please let me know!
