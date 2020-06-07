@@ -9,7 +9,7 @@ It allows monitoring and control via HomeAssistant:
 
 To-Do:
 - Status of "Fill Beans", "Need Cleaning", "Need Flushing"
-- Actual machine power state (currently an 'Optimistic' switch in ESPhome)
+- Actual machine power state (currently an 'Optimistic', 'Assumed State' Template switch in ESPhome)
 
 Hardware is a Wemos D1 Mini connected to the 7-pin Jura service port via a 3.3V<->5V logic level converter.
 
