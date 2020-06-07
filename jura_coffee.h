@@ -6,11 +6,14 @@ class JuraCoffee : public PollingComponent, public UARTDevice {
  Sensor *xsensor3 {nullptr};
  Sensor *xsensor4 {nullptr};
  Sensor *xsensor5 {nullptr};
+ TextSensor *xsensor6 {nullptr};
+ TextSensor *xsensor7 {nullptr};
 
  public:
-  JuraCoffee(UARTComponent *parent, Sensor *sensor1, Sensor *sensor2, Sensor *sensor3, Sensor *sensor4, Sensor *sensor5) : UARTDevice(parent) , xsensor1(sensor1) , xsensor2(sensor2) , xsensor3(sensor3) , xsensor4(sensor4) , xsensor5(sensor5) {}
+  JuraCoffee(UARTComponent *parent, Sensor *sensor1, Sensor *sensor2, Sensor *sensor3, Sensor *sensor4, Sensor *sensor5, TextSensor *sensor6, TextSensor *sensor7) : UARTDevice(parent) , xsensor1(sensor1) , xsensor2(sensor2) , xsensor3(sensor3) , xsensor4(sensor4) , xsensor5(sensor5) , xsensor6(sensor6) , xsensor7(sensor7) {}
 
   long num_single_espresso, num_double_espresso, num_coffee, num_double_coffee, num_clean;
+  std::string tray_status, tank_status;
 
   // Jura communication function taken in entirety from cmd2jura.ino, found at https://github.com/hn/jura-coffee-machine
   String cmd2jura(String outbytes) {
@@ -55,45 +58,56 @@ class JuraCoffee : public PollingComponent, public UARTDevice {
   }
 
   void setup() override {
-    this->set_update_interval(600000); // 600 seconds (10 minutes)
+    this->set_update_interval(6000); // 600000 = 10 minutes // Now 6 seconds
   }
 
   void loop() override {
   }
 
   void update() override {
-    String result;
+    String result, hexString, substring;
+    byte hex_to_byte;
+    int trayBit, tankBit;
+
+    // Fetch our line of EEPROM
+    result = cmd2jura("RT:0000");
 
     // Get Single Espressos made
-    result = cmd2jura("RE:0000");
-    result.remove(0,3); // Strip first 3 characters of response, which in this case are "re:" (repeated back to us)
-    num_single_espresso = strtol(result.c_str(),NULL,16);
+    substring = result.substring(3,7);
+    num_single_espresso = strtol(substring.c_str(),NULL,16);
 
     // Get Double Espressos made
-    result = cmd2jura("RE:0001");
-    result.remove(0,3);
-    num_double_espresso = strtol(result.c_str(),NULL,16);
+    substring = result.substring(7,11);
+    num_double_espresso = strtol(substring.c_str(),NULL,16);
 
     // Get Coffees made
-    result = cmd2jura("RE:0002");
-    result.remove(0,3);
-    num_coffee = strtol(result.c_str(),NULL,16);
+    substring = result.substring(11,15);
+    num_coffee = strtol(substring.c_str(),NULL,16);
 
     // Get Double Coffees made
-    result = cmd2jura("RE:0003");
-    result.remove(0,3);
-    num_double_coffee = strtol(result.c_str(),NULL,16);
+    substring = result.substring(15,19);
+    num_double_coffee = strtol(substring.c_str(),NULL,16);
 
     // Get Cleanings done
-    result = cmd2jura("RE:0008");
-    result.remove(0,3);
-    num_clean = strtol(result.c_str(),NULL,16);
+    substring = result.substring(35,39);
+    num_clean = strtol(substring.c_str(),NULL,16);
+
+    // Fetch status of Tray and Water Tank
+    result = cmd2jura("IC:");
+    hexString = result.substring(3,5);
+    hex_to_byte = strtol(hexString.c_str(),NULL,16);
+    trayBit = bitRead(hex_to_byte, 4);
+    tankBit = bitRead(hex_to_byte, 5);
+    if (trayBit == 1) { tray_status = "Missing"; } else { tray_status = "Present"; }
+    if (tankBit == 1) { tank_status = "Fill Tank"; } else { tank_status = "OK"; }
 
     if (xsensor1 != nullptr)   xsensor1->publish_state(num_single_espresso);
     if (xsensor2 != nullptr)   xsensor2->publish_state(num_double_espresso);
     if (xsensor3 != nullptr)   xsensor3->publish_state(num_coffee);
     if (xsensor4 != nullptr)   xsensor4->publish_state(num_double_coffee);
     if (xsensor5 != nullptr)   xsensor5->publish_state(num_clean);
+    if (xsensor6 != nullptr)   xsensor6->publish_state(tray_status);
+    if (xsensor7 != nullptr)   xsensor7->publish_state(tank_status);
 
   }
 };

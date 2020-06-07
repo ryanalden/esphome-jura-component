@@ -159,14 +159,24 @@ sensor:
 text_sensor:
   - platform: version
     name: "${friendly_name} ESPHome version"
+    
+  - platform: template
+    id: tray_status
+    name: "Tray Status"
+    lambda: "return {};"
+    
+  - platform: template
+    id: tank_status
+    name: "Water Tank Status"
+    lambda: "return {};"
 
 binary_sensor:
   - platform: status
     name: "${friendly_name} Status"
 
-# Custom component to poll coffee machine counters
+# Custom component to poll coffee machine counters & status
 custom_component:
 - lambda: |-
-    auto my_jura = new JuraCoffee(id(uart_bus),id(num_single_espresso),id(num_double_espresso),id(num_coffee),id(num_double_coffee),id(num_clean));
+    auto my_jura = new JuraCoffee(id(uart_bus),id(num_single_espresso),id(num_double_espresso),id(num_coffee),id(num_double_coffee),id(num_clean),id(tray_status),id(tank_status));
     App.register_component(my_jura);
     return {my_jura};
