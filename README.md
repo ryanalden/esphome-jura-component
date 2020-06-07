@@ -8,6 +8,7 @@ It allows monitoring and control via HomeAssistant:
 <img src="HomeAssistant_interface.png" alt="drawing" width=55%/>
 
 To-Do:
+- Determine how to initiate the Force Rinse action on this model
 - Status of "Fill Beans", "Need Cleaning", "Need Flushing"
 - Actual machine power state (currently we use an 'Optimistic', 'Assumed State' Template switch in ESPhome)
 
@@ -36,5 +37,3 @@ FA:0D | Cycles through menu options [dial counter-clockwise]
 FA:OE | Cycles through menu options clockwise [dial-clockwise]
 FA:0F | Reads "B. Full", Freezes up
 DA:16 | Shows the final two digits on the display, i.e. "16.."
-
-If you figure out how to force a rinse on this model, please let me know!
