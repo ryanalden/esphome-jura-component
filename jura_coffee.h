@@ -58,7 +58,7 @@ class JuraCoffee : public PollingComponent, public UARTDevice {
   }
 
   void setup() override {
-    this->set_update_interval(6000); // 600000 = 10 minutes // Now 6 seconds
+    this->set_update_interval(60000); // 600000 = 10 minutes // Now 60 seconds
   }
 
   void loop() override {
@@ -68,6 +68,8 @@ class JuraCoffee : public PollingComponent, public UARTDevice {
     String result, hexString, substring;
     byte hex_to_byte;
     int trayBit, tankBit;
+    // For Testing
+    // int read_bit0,read_bit1,read_bit2,read_bit3,read_bit4,read_bit5,read_bit6,read_bit7;
 
     // Fetch our line of EEPROM
     result = cmd2jura("RT:0000");
@@ -76,23 +78,24 @@ class JuraCoffee : public PollingComponent, public UARTDevice {
     substring = result.substring(3,7);
     num_single_espresso = strtol(substring.c_str(),NULL,16);
 
-    // Get Double Espressos made
+    // Double Espressos made
     substring = result.substring(7,11);
     num_double_espresso = strtol(substring.c_str(),NULL,16);
 
-    // Get Coffees made
+    // Coffees made
     substring = result.substring(11,15);
     num_coffee = strtol(substring.c_str(),NULL,16);
 
-    // Get Double Coffees made
+    // Double Coffees made
     substring = result.substring(15,19);
     num_double_coffee = strtol(substring.c_str(),NULL,16);
 
-    // Get Cleanings done
+    // Cleanings done
     substring = result.substring(35,39);
     num_clean = strtol(substring.c_str(),NULL,16);
 
-    // Fetch status of Tray and Water Tank
+    // Tray & water tank status
+    // Much gratitude to https://www.instructables.com/id/IoT-Enabled-Coffee-Machine/ for figuring out how these bits are stored
     result = cmd2jura("IC:");
     hexString = result.substring(3,5);
     hex_to_byte = strtol(hexString.c_str(),NULL,16);
@@ -100,6 +103,20 @@ class JuraCoffee : public PollingComponent, public UARTDevice {
     tankBit = bitRead(hex_to_byte, 5);
     if (trayBit == 1) { tray_status = "Missing"; } else { tray_status = "Present"; }
     if (tankBit == 1) { tank_status = "Fill Tank"; } else { tank_status = "OK"; }
+
+    // For Testing
+    // read_bit0 = bitRead(hex_to_byte, 0);
+    // read_bit1 = bitRead(hex_to_byte, 1);
+    // read_bit2 = bitRead(hex_to_byte, 2);
+    // read_bit3 = bitRead(hex_to_byte, 3);
+    // read_bit4 = bitRead(hex_to_byte, 4);
+    // read_bit5 = bitRead(hex_to_byte, 5);
+    // read_bit6 = bitRead(hex_to_byte, 6);
+    // read_bit7 = bitRead(hex_to_byte, 7);
+    // ESP_LOGD("main", "Raw IC result: %s", result.c_str());
+    // ESP_LOGD("main", "Substringed: %s", hexString.c_str());
+    // ESP_LOGD("main", "Converted_To_Long: %li", hex_to_byte);
+    // ESP_LOGD("main", "As Bits: %d%d%d%d%d%d%d%d", read_bit7,read_bit6,read_bit5,read_bit4,read_bit3,read_bit2,read_bit1,read_bit0);
 
     if (xsensor1 != nullptr)   xsensor1->publish_state(num_single_espresso);
     if (xsensor2 != nullptr)   xsensor2->publish_state(num_double_espresso);
