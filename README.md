@@ -7,7 +7,7 @@ It allows monitoring and control via HomeAssistant:
 
 <img src="HomeAssistant_interface.png" alt="drawing" width=55%/>
 
-Readout of water tank level, coffee bean level, tray present/removed, actual machine power state, need cleaning, need flushing, etc, are not currently implemented.
+Readout of coffee bean level, actual machine power state, need cleaning, need flushing, etc, are not currently implemented.
 
 Hardware is a Wemos D1 Mini connected to the 7-pin Jura service port via a 3.3V<->5V logic level converter.
 
