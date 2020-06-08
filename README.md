@@ -22,6 +22,7 @@ Particular commands seem to vary by model.  These work on the Impressa J6:
 Command | Action
 --- | ---
 AN:01 | Switch On
+AN:02 | Switch Off
 FA:01 | Switch off, including rinse
 AN:0D | Tray Test? Or date related?
 FA:02 | Heat up water
