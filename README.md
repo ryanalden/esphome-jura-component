@@ -16,7 +16,7 @@ More hardware info in this thread: https://community.home-assistant.io/t/control
 
 ***
 
-Particular commands seem to vary by model.  These work on the Impressa J6:
+Particular commands seem to vary by model.  These work on the Impressa J6, software `TY: PIM V01.01`, `TL: LOADER V3.0`.
 Command | Action
 --- | ---
 AN:01 | Switch On
