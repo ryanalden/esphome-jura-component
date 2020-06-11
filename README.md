@@ -20,6 +20,12 @@ Above image taken from [here](https://community.home-assistant.io/t/control-your
 
 <img src="connection-diagram.png" alt="Jura 7-pin interface">
 
+The D1 Mini is placed in an enclosure screwed to the back of the Jura, hidden out of the way.
+
+<img src="d1-mini-mounting.jpg" alt="D1 mini mounting on back of J6">
+
+Internal connections to the wires are with "T" tap/splices.
+
 ***
 
 Commands for your machine can be generated using the provided script, `generate_esphome_jura_yaml.py`.  It requires the `bitarray` Python module to be installed.
