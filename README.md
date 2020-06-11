@@ -18,8 +18,7 @@ More hardware info in this thread: https://community.home-assistant.io/t/control
 
 If you don't have a J6, you will need to generate the appropriate commands for your machine using the provided script, `generate_esphome_jura_yaml.py`.  Like so:
 
-`
-$ ./generate_esphome_jura_yaml.py AN:01
+`$ ./generate_esphome_jura_yaml.py AN:01
 
       - uart.write: [0xDF, 0xDB, 0xDB, 0xDF]  ## 'A'
       - delay: 8ms
@@ -33,8 +32,7 @@ $ ./generate_esphome_jura_yaml.py AN:01
       - delay: 8ms
       - uart.write: [0xDF, 0xFF, 0xDB, 0xDB]  ## '\r'
       - delay: 8ms
-      - uart.write: [0xFB, 0xFB, 0xDB, 0xDB]  ## '\n'
-`
+      - uart.write: [0xFB, 0xFB, 0xDB, 0xDB]  ## '\n'`
 
 ***
 
