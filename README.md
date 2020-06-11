@@ -34,8 +34,6 @@ If you don't have a J6, you will need to generate the appropriate commands for y
             - delay: 8ms
             - uart.write: [0xFB, 0xFB, 0xDB, 0xDB]  ## '\n'
 
-***
-
 Particular commands seem to vary by model.\
 These work on the Impressa J6, software `TY: PIM V01.01`, `TL: LOADER V3.0`.
 Command | Action
