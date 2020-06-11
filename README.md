@@ -3,7 +3,7 @@ This is an ESPhome custom component to communicate with a Jura Impressa J6 coffe
 
 It allows monitoring and control via HomeAssistant:
 
-<img src="HomeAssistant_interface.png" alt="drawing" width=55%/>
+<img src="images/HomeAssistant_interface.png" alt="drawing" width=55%/>
 
 To-Do:
 - Determine how to initiate a Force Rinse action on this model
@@ -14,21 +14,21 @@ To-Do:
 
 Hardware is a Wemos D1 Mini connected to the 7-pin Jura service port via a 3.3V<->5V logic level converter.  The D1 mini is powered from the Jura.
 
-<img src="seven-pin-interface.jpg" alt="Jura 7-pin interface">
+<img src="images/seven-pin-interface.jpg" alt="Jura 7-pin interface">
 
 Above image taken from [here](https://community.home-assistant.io/t/control-your-jura-coffee-machine/26604).
 
-<img src="connection-diagram.png" alt="Jura 7-pin interface">
+<img src="images/connection-diagram.png" alt="Jura 7-pin interface">
 
 If you have diffuculty, try swapping the TX/RX pins.
 
 The D1 Mini is placed in an enclosure screwed to the back of the Jura, hidden out of the way.
 
-<img src="d1-mini-mounting.jpg" alt="D1 mini mounting on back of J6" width=55%/>
+<img src="images/d1-mini-mounting.jpg" alt="D1 mini mounting on back of J6" width=55%/>
 
 Internal connections to the service connector wires are done with "T" tap/splices, leaving the connector itself alone.
 
-<img src="t-splice.png" alt="T-splice" width=25%/>
+<img src="images/t-splice.png" alt="T-splice" width=25%/>
 
 ***
 
