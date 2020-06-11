@@ -16,6 +16,28 @@ More hardware info in this thread: https://community.home-assistant.io/t/control
 
 ***
 
+If you don't have a J6, you will need to generate the appropriate commands for your machine using the provided script, `generate_esphome_jura_yaml.py`.  Like so:
+
+`
+$ ./generate_esphome_jura_yaml.py AN:01
+
+      - uart.write: [0xDF, 0xDB, 0xDB, 0xDF]  ## 'A'
+      - delay: 8ms
+      - uart.write: [0xFB, 0xFF, 0xDB, 0xDF]  ## 'N'
+      - delay: 8ms
+      - uart.write: [0xFB, 0xFB, 0xFF, 0xDB]  ## ':'
+      - delay: 8ms
+      - uart.write: [0xDB, 0xDB, 0xFF, 0xDB]  ## '0'
+      - delay: 8ms
+      - uart.write: [0xDF, 0xDB, 0xFF, 0xDB]  ## '1'
+      - delay: 8ms
+      - uart.write: [0xDF, 0xFF, 0xDB, 0xDB]  ## '\r'
+      - delay: 8ms
+      - uart.write: [0xFB, 0xFB, 0xDB, 0xDB]  ## '\n'
+`
+
+***
+
 Particular commands seem to vary by model.\
 These work on the Impressa J6, software `TY: PIM V01.01`, `TL: LOADER V3.0`.
 Command | Action
