@@ -16,7 +16,7 @@ More hardware info in this thread: https://community.home-assistant.io/t/control
 
 ***
 
-If you don't have a J6, you will need to generate the appropriate commands for your machine using the provided script, `generate_esphome_jura_yaml.py`.  Like so:
+If you don't have a J6, you will need to generate the appropriate commands for your machine using the provided script, `generate_esphome_jura_yaml.py`:
 
       $ ./generate_esphome_jura_yaml.py AN:01
 
