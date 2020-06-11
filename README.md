@@ -20,7 +20,7 @@ Image taken from [Here](https://community.home-assistant.io/t/control-your-jura-
 
 ***
 
-Commands for your machine can be generated using the provided script, `generate_esphome_jura_yaml.py`.  It requires the `bitarray` module to be installed.
+Commands for your machine can be generated using the provided script, `generate_esphome_jura_yaml.py`.  It requires the `bitarray` Python module to be installed.
 
       $ ./generate_esphome_jura_yaml.py AN:01
 
