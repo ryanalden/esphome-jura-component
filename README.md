@@ -66,7 +66,7 @@ FA:08 | Make 2 Espressi
 FA:09 | Make 1 Coffee
 FA:0A | Make 2 Coffees
 FA:0B | Cup illumination light comes on. Also exits menu system.
-FA:0C | Enters the menu system - displays RINSE as the first option...
+FA:0C | Enters the menu system - displays RINSE as the first option
 FA:0D | Cycles through menu options [dial counter-clockwise]
 FA:OE | Cycles through menu options clockwise [dial-clockwise]
 FA:0F | Reads "B. Full", Freezes up
