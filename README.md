@@ -12,11 +12,13 @@ To-Do:
 
 ***
 
-Hardware is a Wemos D1 Mini connected to the 7-pin Jura service port via a 3.3V<->5V logic level converter.
+Hardware is a Wemos D1 Mini connected to the 7-pin Jura service port via a 3.3V<->5V logic level converter.  The D1 mini is powered from the Jura.
 
 <img src="seven-pin-interface.jpg" alt="Jura 7-pin interface">
 
-Image taken from [Here](https://community.home-assistant.io/t/control-your-jura-coffee-machine/26604).
+Above image taken from [here](https://community.home-assistant.io/t/control-your-jura-coffee-machine/26604).
+
+<img src="connection-diagram.png" alt="Jura 7-pin interface">
 
 ***
 
