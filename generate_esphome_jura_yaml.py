@@ -43,7 +43,8 @@ def tojura(c):
     two = int.from_bytes(z1, byteorder='big')
     three = int.from_bytes(z2, byteorder='big')
     four = int.from_bytes(z3, byteorder='big')
-    print("- uart.write: [", end = '')
+
+    print("      - uart.write: [", end = '')
     print("0x{:X}".format(four), end = '')
     print(", ", end = '')
     print("0x{:X}".format(three), end = '')
@@ -52,15 +53,18 @@ def tojura(c):
     print(", ", end = '')
     print("0x{:X}".format(one), end = '')
     print("]  ## " , end = '')
-    print(repr(c))
-    print("- delay: 8ms")
+    print((repr(c)))
+    if ("\\n" not in repr(c)):
+      print("      - delay: 8ms")
 
     return [z0,z1,z2,z3]
 
-def testencoder():
-    teststring = arg1 + "\r\n"
+def encoder():
+    string = arg1 + "\r\n"
     bytes = []
-    for c in teststring:
+    for c in string:
         bytes.append(tojura(c))
 
-testencoder()
+print()
+encoder()
+print()
