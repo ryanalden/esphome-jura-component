@@ -20,11 +20,15 @@ Above image taken from [here](https://community.home-assistant.io/t/control-your
 
 <img src="connection-diagram.png" alt="Jura 7-pin interface">
 
+If you have diffuculty, try swapping the TX/RX pins.
+
 The D1 Mini is placed in an enclosure screwed to the back of the Jura, hidden out of the way.
 
-<img src="d1-mini-mounting.jpg" alt="D1 mini mounting on back of J6">
+<img src="d1-mini-mounting.jpg" alt="D1 mini mounting on back of J6" width=55%/>
 
-Internal connections to the wires are with "T" tap/splices.
+Internal connections to the service connector wires are done with "T" tap/splices, leaving the connector itself alone.
+
+<img src="t-splice.png" alt="T-splice" width=25%/>
 
 ***
 
