@@ -22,7 +22,7 @@ Above image taken from [here](https://community.home-assistant.io/t/control-your
 
 If you have diffuculty, try swapping the TX/RX pins.
 
-The D1 Mini is placed in an enclosure screwed to the back of the Jura, hidden out of the way.
+The D1 Mini and level converter are placed in an enclosure screwed to the back of the Jura, hidden out of the way.
 
 <img src="images/d1-mini-mounting.jpg" alt="D1 mini mounting on back of J6" width=55%/>
 
