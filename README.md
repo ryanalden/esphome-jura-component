@@ -1,14 +1,9 @@
-# ESPhome - Jura Impressa J6 
+## ESPhome - Jura Impressa J6 
 This is an ESPhome custom component to communicate with a Jura Impressa J6 coffee machine.  It may also work with other serially-controlled Jura models with minimal adjustment.
 
 It allows monitoring and control via HomeAssistant:
 
 <img src="images/HomeAssistant_interface.png" alt="drawing" width=55%/>
-
-To-Do:
-- Determine how to initiate a Force Rinse action on this model
-- Status of "Fill Beans", "Need Cleaning", and "Need Flushing"
-- Actual machine power state (currently we use an 'Optimistic', 'Assumed State' Template switch in ESPhome)
 
 ***
 
@@ -71,3 +66,8 @@ FA:0D | Cycles through menu options [dial counter-clockwise]
 FA:OE | Cycles through menu options clockwise [dial-clockwise]
 FA:0F | Reads "B. Full", Freezes up
 DA:16 | Shows the final two digits on the display, i.e. "16.."
+
+#### To-Do:
+- Determine how to initiate a Force Rinse action on this model
+- Status of "Fill Beans", "Need Cleaning", and "Need Flushing"
+- Actual machine power state (currently we use an 'Optimistic', 'Assumed State' Template switch in ESPhome)
