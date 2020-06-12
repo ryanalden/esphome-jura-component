@@ -7,7 +7,8 @@ It allows monitoring and control via HomeAssistant:
 
 ***
 
-Hardware is a Wemos D1 Mini connected to the 7-pin Jura service port via a 3.3V<->5V logic level converter.  The D1 mini is powered from the Jura.
+Hardware is a Wemos D1 Mini connected to the 7-pin Jura service port via a 3.3V<->5V logic level converter.\
+The D1 mini is powered from the Jura.
 
 <img src="images/seven-pin-interface.jpg" alt="Jura 7-pin interface">
 
