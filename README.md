@@ -1,11 +1,19 @@
-## ESPhome - Jura Impressa J6 
-This is an ESPhome custom component to communicate with a Jura Impressa J6 coffee machine.  It may also work with other serially-controlled Jura models with minimal adjustment.
+## ESPHome Jura Component
 
+###  **Note:**
+This project has not been updated lately, as I replaced my J6 with a Z10 [controlled via Bluetooth Proxy](https://github.com/AlexxIT/Jura), and no longer have the correct hardware setup.  
+
+#### 🌟 Fortunately, [Tiaan Viljoen has modernized the project](https://github.com/tiaanv/jura) to adapt to ESPHome's current custom component architecture, as well as adding support for ESP32, ESP-IDF, and the CoolControl milk system.
+
+---
+<br>
+This is an ESPhome custom component to communicate with a Jura Impressa J6 coffee machine.  It may also work with other serially-controlled Jura models with minimal adjustment.
+<br><br>
 It allows monitoring and control via HomeAssistant:
 
 <img src="images/HomeAssistant_interface.png" alt="drawing" width=55%/>
 
-***
+---
 
 Hardware is a Wemos D1 Mini connected to the 7-pin Jura service port via a 3.3V<->5V logic level converter.\
 The D1 mini is powered from the Jura.
@@ -26,7 +34,7 @@ Internal connections to the service connector wires are done with "T" tap/splice
 
 <img src="images/t-splice.png" alt="T-splice" width=25%/>
 
-***
+---
 
 Commands for your machine can be generated using the provided script, `generate_esphome_jura_yaml.py`.  It requires the `bitarray` Python module to be installed.
 
@@ -67,6 +75,7 @@ FA:0D | Cycles through menu options [dial counter-clockwise]
 FA:OE | Cycles through menu options clockwise [dial-clockwise]
 FA:0F | Reads "B. Full", Freezes up
 DA:16 | Shows the final two digits on the display, i.e. "16.."
+
 
 #### To-Do:
 - Determine how to initiate a Force Rinse action on this model
