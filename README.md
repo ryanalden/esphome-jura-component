@@ -3,8 +3,8 @@
 ###  **Note:**
 This project has not been updated lately, as I replaced my J6 with a Z10 [controlled via Bluetooth Proxy](https://github.com/AlexxIT/Jura), and no longer have the correct hardware setup.  
 
-#### 🌟 Fortunately, [Tiaan Viljoen has modernized the project](https://github.com/tiaanv/jura) to adapt to ESPHome's current custom component architecture, as well as adding support for ESP32, ESP-IDF, and the CoolControl milk system.
-
+#### 🌟 Fortunately, [Tiaan Viljoen has modernized the project](https://github.com/tiaanv/jura) to adapt to ESPHome's external component architecture, as well as adding support for ESP32, ESP-IDF, and the CoolControl milk system.
+#### 🌟 You may also be interested in [the work of Alco28](https://github.com/alco28/Jura-F7-ESPHOME).
 ---
 <br>
 This is an ESPhome custom component to communicate with a Jura Impressa J6 coffee machine.  It may also work with other serially-controlled Jura models with minimal adjustment.
@@ -77,7 +77,5 @@ FA:0F | Reads "B. Full", Freezes up
 DA:16 | Shows the final two digits on the display, i.e. "16.."
 
 
-#### To-Do:
-- Determine how to initiate a Force Rinse action on this model
-- Status of "Fill Beans", "Need Cleaning", and "Need Flushing"
+#### Not Implemented:
 - Actual machine power state (currently we use an 'Optimistic', 'Assumed State' Template switch in ESPhome)
